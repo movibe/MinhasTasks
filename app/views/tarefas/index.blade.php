@@ -8,7 +8,7 @@
 		<span class="label label-success"> {{ $tarefa->titulo }} </span>
 		@else
 		<label data-tarefa-id="{{ $tarefa->id }}">
-			<input type="checkbox"> {{ $tarefa->titulo }}
+			<input type="checkbox"> {{ $tarefa->titulo }} {{ $tarefa->lista }}
 		</label>
 		@endif
 

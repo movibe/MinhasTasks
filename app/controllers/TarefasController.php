@@ -12,11 +12,14 @@ class TarefasController extends BaseController{
 	/*
 	Cadastro de Tarefas
 	 */
-	public function getCadastro(){
-		$this->layout->content = View::make('tarefas.cadastro');
+	public function getCadastro($lista_id){
+		$lista = Lista::findOrFail($lista_id);
+		$this->layout->content = View::make('tarefas.cadastro',compact('lista'))->with('lista_id', $lista_id);
 	}
 
-	public function postCadastro(){
+	public function postCadastro($lista_id){
+		// Verifica se a lista existe
+		Lista::findOrFail($lista_id);
 		
 		$validacao = Validator::make(Input::all(), Tarefa::$regras);
 
@@ -24,7 +27,9 @@ class TarefasController extends BaseController{
 			return Redirect::to('cadastro')->withErrors($validacao);
 		}
 
-		$tarefa = Tarefa::create(Input::all());
+		$tarefa = new Tarefa;
+		$tarefa->titulo = Input::get('titulo');
+		$tarefa->lista_id = $lista_id;
 		$tarefa->save();
 
 		return Redirect::to('');

@@ -13,6 +13,13 @@ class ListasController extends BaseController {
 		$this->layout->content = View::make('listas.cadastro');
 	}
 
+	public function getTarefas($lista_id = 0 ){
+		if($lista_id == 0) return $this->listar();
+		$lista = Lista::findOrFail($lista_id);
+
+		$this->layout->content = View::make('listas.tarefas', compact('lista'));
+	}
+
 	public function postCadastro(){
 		
 		$val = Validator::make(Input::all(), Lista::$regras);

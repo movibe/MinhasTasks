@@ -1,6 +1,10 @@
 
 @section('content')
 	
+	<div class="page-header">
+	  <h1>Lista<small> de {{ $lista->titulo }}</small></h1>
+	</div>
+
 	<div class="row-fluid marketing">
 		@if(count($errors)>0)
 		    <div class="alert">
@@ -14,9 +18,9 @@
 		    	@endforeach
 		    </ul>
 		@endif
-
+		
 		<div class="span6">
-			{{ Form::open(array('url'=> 'cadastro', 'method' => 'post' )) }}
+			{{ Form::open(array('url'=> 'cadastro/'. $lista_id, 'method' => 'post' )) }}
 				<div class="form-group">
 					{{ Form::label('titulo', "Tarefa a ser Cumprida") }}
 					{{ Form::text('titulo', '', array('placeholder'=>'Nome da Tarefa', 'class'=>'form-control' )) }}

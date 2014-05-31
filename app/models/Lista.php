@@ -6,4 +6,8 @@ class Lista extends Eloquent {
 	public static $regras = [
 		'titulo' => 'required'	
 	];
+
+	public function tarefas(){
+		return $this->hasMany('Tarefa','lista_id');
+	}
 }

@@ -6,4 +6,8 @@ class Tarefa extends Eloquent {
 	public static $regras = [
 		'titulo'=> 'required'
 	];
+
+	public function listas(){
+		return $this->belongsTo('Lista','lista_id');
+	}
 }
