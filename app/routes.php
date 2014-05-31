@@ -11,4 +11,5 @@
 |
 */
 
+Route::controller('listas', 'ListasController');
 Route::controller('/', 'TarefasController');

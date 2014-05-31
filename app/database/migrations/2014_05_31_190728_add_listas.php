@@ -12,7 +12,16 @@ class AddListas extends Migration {
 	 */
 	public function up()
 	{
-		//
+		Schema::create('listas', function($table){
+			$table->increments('id');
+			$table->string('titulo',100);
+			$table->timestamps();
+		});
+
+		Schema::table('tarefas', function($table){
+			$table->integer('lista_id')->unsigned()->nullable();
+			$table->foreign('lista_id')->references('id')->on('listas')->onDelete('cascade')->onUpdate('cascade');
+		});
 	}
 
 	/**
@@ -22,7 +31,12 @@ class AddListas extends Migration {
 	 */
 	public function down()
 	{
-		//
+		Schema::table('tarefas', function(){
+			$table->dropForeign('tarefa_id');
+			$table->dropColumn('lista_id');
+		});
+
+		Schema::dropIfExists('listas');
 	}
 
 }
