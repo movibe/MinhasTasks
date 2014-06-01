@@ -1,4 +1,5 @@
 @section('content')
+@section('title', 'Nova Lista')
 
 <div class="page-header">
 	<h1>Cadastro<small> de Lista de Tarefas</small></h1>

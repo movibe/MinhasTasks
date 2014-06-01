@@ -1,5 +1,7 @@
 @extends ('layout.layout')
 
+@section('title', 'Login')
+
 @section('content')
 
 @if ( count($errors) > 0)

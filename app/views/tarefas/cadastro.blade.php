@@ -1,3 +1,4 @@
+@section('title', 'Nova Tarefa')
 
 @section('content')
 

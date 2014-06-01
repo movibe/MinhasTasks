@@ -1,4 +1,5 @@
 @extends ('layout.layout')
+@section('title', 'Bem vindo')
 @section('content')
 
       <div class="masthead">

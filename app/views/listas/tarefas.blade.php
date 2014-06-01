@@ -1,4 +1,5 @@
 @section('content')
+@section('title', 'Lista de Tarefas')
 
 <div class="page-header">
   <h1>Lista<small> de {{ $lista->titulo }}</small></h1>

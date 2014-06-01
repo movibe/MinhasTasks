@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Tarefas : Index</title>
+	<title>Tarefas: @yield('title') </title>
 	<meta charset="UTF-8">
 	<meta name=description content="">
 	<meta name=viewport content="width=device-width, initial-scale=1">
@@ -47,7 +47,7 @@
 
 		<hr>
 		<div class="footer">
-			<p>Criado por <a href="http://www.movibe.com.br">Willian Ribeiro Angelo</a></p>
+			<p>Criado por <a href="https://github.com/movibe" target="_blank">Willian Ribeiro Angelo</a></p>
 		</div>
 	</div>
 

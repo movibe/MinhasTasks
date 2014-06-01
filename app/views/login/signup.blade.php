@@ -1,5 +1,6 @@
 @extends ('layout.layout')
 
+@section('title', 'Cadastre-se')
 @section('content')
 
 @if ( count($errors) > 0)
