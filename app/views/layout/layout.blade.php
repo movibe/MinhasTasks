@@ -29,8 +29,11 @@
 			@if(Auth::check())
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li>{{ HTML::link('listas', 'Tarefas') }}</li>
-					<li><a href="#" class="dropdown-toggle" data-toggle="dropdown"> <img src="http://www.gravatar.com/avatar/{{  md5( strtolower( trim( "agfoccus@gmail.com " ) ) ) }}" alt="" height="20">  Olá, {{ Auth::user()->nome }} <b class="caret"></b></a></li>
+					<!-- <li>{{ HTML::link('listas', 'Tarefas') }}</li> -->
+					<li><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						Olá, {{ Auth::user()->nome }}  
+						<img src="http://www.gravatar.com/avatar/{{  md5( strtolower( trim( "agfoccus@gmail.com " ) ) ) }}" alt="" height="25">
+						 </a></li>
 					<li>{{ HTML::link('logout', 'Sair') }}</li>
 				</ul>
 			</div>
@@ -50,10 +53,7 @@
 			
 				@yield ('content')
 
-				<hr>
-				<div class="footer">
-					<p>Criado por <a href="https://github.com/movibe" target="_blank">Willian Ribeiro Angelo</a></p>
-				</div>
+				@include('layout._footer')
 			</div>
 		</div>
 	</div>

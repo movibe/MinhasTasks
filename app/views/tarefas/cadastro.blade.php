@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="page-header">
-	<h1>Cadastro<small> de Tarefa para Lista de {{ $lista->titulo }}</small></h1>
+	<h1>Nova Tarefa<small> : {{ $lista->titulo }}</small></h1>
 </div>
 
 <div class="row-fluid marketing">

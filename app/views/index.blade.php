@@ -25,14 +25,16 @@
         </p>
         
         <p>
-            <a class="btn btn-primary" href="http://blog.frenetic.com.br/category/projetos/todovel/">Leia o Tutorial</a>
-            <a class="btn btn-info" href="https://github.com/frenetic/todovel">Veja o Código no GitHub</a>
+            <a class="btn btn-primary" href="http://blog.frenetic.com.br/category/projetos/todovel/" target="_blank">Baseado no Tutorial</a>
+            <a class="btn btn-info" href="https://github.com/movibe/MinhasTasks" target="_blank">Veja o Código no GitHub</a>
         </p>
         
-        
         <p>
-            <a class="btn btn-small btn-danger" href="http://todovel.frenetic.com.br/cadastro">Cadastre-se</a>
-            <a class="btn btn-small btn-inverse" href="http://todovel.frenetic.com.br/login">Login</a>
+            Acesse:
+        </p>
+        <p>
+            {{ HTML::link('signup', 'Cadastre-se', ['class' => 'btn btn-success'] ) }}
+            {{ HTML::link('login', 'Login', ['class' => 'btn btn-warning'] ) }}
         </p>
     </div>
     

@@ -16,8 +16,14 @@ class ListasController extends BaseController {
 		if($lista_id == 0) return $this->listar();
 		
 		$lista = Lista::findOrFail($lista_id);
-
 		$this->layout->content = View::make('listas.tarefas', compact('lista'));
+	}
+
+	public function getDeletar($id_lista){
+		if ($id_lista == 0 ) return Redirect::to('/');
+		$lista = Lista::findOrFail($id_lista);
+		$lista->delete();
+		return Redirect::to('/');
 	}
 
 	public function postCadastro(){
@@ -33,7 +39,8 @@ class ListasController extends BaseController {
 			$lista->save();
 
 			$listas = User::find(Auth::user()->id)->listas;
-			$this->layout->content = View::make('listas.index', compact('listas'))->with('sucesso', TRUE);
+			// $this->layout->content = View::make('listas.index', compact('listas'))->with('sucesso', TRUE);
+			return Redirect::to('listas/tarefas/' . $lista->id);
 		}
 
 	}

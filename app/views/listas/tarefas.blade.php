@@ -6,9 +6,9 @@
 </div>
 
 <p>
-    {{ HTML::link('listas/', 'Voltar', [ 'class' => 'btn btn-info']) }}
+    {{-- HTML::link('listas/', 'Voltar', [ 'class' => 'btn btn-info']) --}}
     {{ HTML::link('tarefas/cadastro/'.$lista->id, 'Adicionar Tarefa', [ 'class' => 'btn btn-warning']) }}
-    {{ HTML::link('listas/', 'Excluir Lista', [ 'class' => 'btn btn-danger']) }}
+    {{ HTML::link('listas/deletar/' . $lista->id, 'Excluir Lista', [ 'class' => 'btn btn-danger']) }}
 </p>
 
 <ul>

@@ -8,9 +8,9 @@
 		@foreach($listas as $lista)
 
 		@if(count($lista->tarefas) == 0)
-		<li class="list-group-item list-group-item-danger">
+			<li class="list-group-item ">
 			@else
-			<li class="list-group-item list-group-item-warning">
+		<li class="list-group-item list-group-item-danger">
 				@endif
 				@if($lista->status)
 				<span class="label label-success"> {{ $lista->titulo }} </span>
