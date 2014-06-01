@@ -48,7 +48,7 @@ class TarefasController extends BaseController{
 					
 					$tarefa = Tarefa::findOrFail(Input::get('tarefa_id'));
 					// Verifica se o usuario é dono da tarefa
-					if ($tarefa->geUsuarioId() != Auth::user()->id) {
+					if ($tarefa->getUsuarioId() != Auth::user()->id) {
 						throw new Exception ("Você não é dono dessa tarefa");
 					}
 					$tarefa->status = true;
