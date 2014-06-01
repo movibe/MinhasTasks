@@ -28,7 +28,7 @@
 		<ul class="nav navbar-nav navbar-right">
 
 			<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Olá, {{ Auth::user()->nome }} <b class="caret"></b></a>
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown"> <img src="http://www.gravatar.com/avatar/{{  md5( strtolower( trim( "agfoccus@gmail.com " ) ) ) }}" alt="" height="20">  Olá, {{ Auth::user()->nome }} <b class="caret"></b></a>
 				<ul class="dropdown-menu">
 					<li>{{ HTML::link('settings', 'Configurações') }}</li>
 					<li class="divider"></li>
