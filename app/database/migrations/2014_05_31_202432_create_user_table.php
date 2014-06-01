@@ -14,8 +14,13 @@ class CreateUserTable extends Migration {
 	{
 		Schema::create('users', function(Blueprint $table) {
 			$table->increments('id');
+			$table->string('nome');
 			$table->string('email')->unique();
 			$table->string('password');
+			$table->string('remember_token')
+						->nullable()
+						->default(null);
+			$table->boolean('active')->DEFAULT(FALSE);
 			$table->timestamps();
 		});
 
@@ -27,7 +32,6 @@ class CreateUserTable extends Migration {
 
 	}
 
-
 	/**
 	 * Reverse the migrations.
 	 *
@@ -38,7 +42,6 @@ class CreateUserTable extends Migration {
 		Schema::table('listas', function($table){
 			$table->dropForeign('user_id');
 			$table->dropColumn('user_id');
-
 		});
 
 		Schema::dropIfExists('users');
