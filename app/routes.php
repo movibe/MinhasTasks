@@ -42,29 +42,31 @@ Route::post('login', ['before' => 'csrf' ,function(){
 
 }]);
 
+/**
+ * Cadastro
+ */
 Route::post('signup', ['before' => 'csrf',function(){
 
+	// return User::$regras_cadastro;
 	$val = Validator::make(Input::all(), User::$regras_cadastro);
 
-	if ($val->fails())  return Redirect::to('login')->withInput()->withErrors($val);
 
-	// Get em todos os Inputs
-	$usuario = [
-		'nome'     => Input::get('nome'),
-		'email'    => Input::get('email'),
-		'password' => Hash::make(Input::get('password')),
-		'active'   => true
-	];
+	if ($val->fails())  return Redirect::to('login')->withInput()->withErrors($val);
 	
 	// Cria um novo usuario
-	User::create($usuario);
+	$usuario = new User;
+	$usuario->nome = Input::get('nome');
+	$usuario->email = Input::get('email');
+	$usuario->password = Hash::make(Input::get('password'));
+	$usuario->active = true;
+	$usuario->save();
 
 
 	// Pego os dados do Usuário Cadastro
 	$user_cadastrado = User::where('email', '=' , Input::get('email'))->firstOrFail();
 
 	// Faço o login automaticamente
-	Auth::login($user_cadastrado->id);
+	Auth::login($user_cadastrado);
 
 	// Faço um redirect para cadastrar uma Lista de Tarefas
 	return Redirect::to('listas/cadastro');

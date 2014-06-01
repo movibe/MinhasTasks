@@ -12,6 +12,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	];
 
 	public static $regras_cadastro = [
+	'nome' => 'required',
 	'email'    => 'required|email|unique:users,email',
 	'password' => 'required'
 	];
