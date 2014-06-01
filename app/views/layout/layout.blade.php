@@ -6,6 +6,7 @@
 	<meta name=description content="">
 	<meta name=viewport content="width=device-width, initial-scale=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="http://getbootstrap.com/assets/ico/favicon.ico">
 	<!-- Bootstrap CSS -->
 	{{ HTML::style('assets/bootstrap/dist/css/bootstrap.min.css') }}
 	

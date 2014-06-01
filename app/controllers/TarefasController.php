@@ -45,7 +45,12 @@ class TarefasController extends BaseController{
 				return Response::json(['status'=> false, 'mensagem' => 'problema na validacao' ]);
 			} else {
 				try {
+					
 					$tarefa = Tarefa::findOrFail(Input::get('tarefa_id'));
+					// Verifica se o usuario é dono da tarefa
+					if ($tarefa->geUsuarioId() != Auth::user()->id) {
+						throw new Exception ("Você não é dono dessa tarefa");
+					}
 					$tarefa->status = true;
 					$tarefa->save();
 

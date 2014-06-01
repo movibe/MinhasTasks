@@ -10,4 +10,8 @@ class Tarefa extends Eloquent {
 	public function listas(){
 		return $this->belongsTo('Lista','lista_id');
 	}
+
+	public function getUsuarioId(){
+		return $this->listas->usuario->id;
+	}
 }
