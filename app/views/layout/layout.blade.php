@@ -16,23 +16,10 @@
 	<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
 		{{ HTML::link('/', 'Minha Task', ['class' => 'navbar-brand']) }}
 
-		<ul class="nav navbar-nav">
-			<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Tarefas <b class="caret"></b></a>
-				<ul class="dropdown-menu">
-					<li>{{ HTML::link('/', 'Lista de Tarefas') }}</li>
-					<li>{{ HTML::link('cadastro', 'Adicionar Tafefa') }}</li>
-				</ul>
-			</li>
-		</ul>
 
 		<ul class="nav navbar-nav">
-			<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Grupo de Tarefas <b class="caret"></b></a>
-				<ul class="dropdown-menu">
-					<li>{{ HTML::link('listas', 'Grupo de Tarefas') }}</li>
-					<li>{{ HTML::link('listas/cadastro', 'Adicionar  Grupo de Tafefa') }}</li>
-				</ul>
+			<li class="">
+				{{ HTML::link('listas', 'Tarefas') }}
 			</li>
 		</ul>
 	</nav>

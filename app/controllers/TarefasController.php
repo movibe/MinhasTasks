@@ -32,7 +32,7 @@ class TarefasController extends BaseController{
 		$tarefa->lista_id = $lista_id;
 		$tarefa->save();
 
-		return Redirect::to('');
+		return Redirect::to('listas/tarefas/' . $lista_id);
 
 	}
 

@@ -1,26 +1,34 @@
 @section('content')
 
-<h1 class="text-center">Listas de Tarefas</h1>
+<div class="page-header">
+	<h1>Lista<small> de Tarefas</small></h1>
+</div>
 
-<table class="table table-hover">
-	<thead>
-		<tr>
-			<th>Nome</th>
-			<th>Tarefas</th>
-			<th>Opções</th>
-		</tr>
-	</thead>
-	<tbody>
-		@foreach($listas as $lista)
+<p>
+	{{ HTML::link('listas/cadastro', 'Adicionar Lista de Tarefas', ['class' => 'btn btn-success']) }}
+</p>
 
-		<tr>
-			<td>{{ HTML::link('listas/tarefas/' . $lista->id, $lista->titulo) }}</td>
-			<td>{{ count($lista->tarefas) }} Tarefas! </td>
-			<td>{{ HTML::link('listas/delete/' . $lista->id, 'Excluir', ['class' => 'btn btn-danger']) }}</td>
-		</tr>
+@if ( isset($sucesso) )
+<div class="alert alert-success">
+	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	<strong>Sucesso!</strong> Lista Cadastrada
+</div>
+@endif
 
-		@endforeach
-	</tbody>
-</table>
+<ul>
+	@foreach($listas as $lista)
+	<li style="list-style: none">
+		@if($lista->status)
+		<span class="label label-success"> {{ $lista->titulo }} </span>
+		@else
+		<label data-lista-id="{{ $lista->id }}">
+			{{ HTML::link('listas/tarefas/' . $lista->id, $lista->titulo . " (" . count($lista->tarefas) . "   tarefas)" ) }}
+		</label>
+		@endif
+
+	</li>
+
+	@endforeach
+</ul>
 
 @endsection

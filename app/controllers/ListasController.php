@@ -31,7 +31,8 @@ class ListasController extends BaseController {
 			$lista->titulo = Input::get('titulo');
 			$lista->save();
 
-			$this->layout->content = View::make('listas.cadastro')->with('sucesso', TRUE);
+			$listas = Lista::all();
+			$this->layout->content = View::make('listas.index', compact('listas'))->with('sucesso', TRUE);
 		}
 
 	}

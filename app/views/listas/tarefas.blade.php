@@ -1,13 +1,17 @@
 @section('content')
 
-<h3>{{ $lista->titulo }}</h3>
+<div class="page-header">
+  <h1>Lista<small> de {{ $lista->titulo }}</small></h1>
+</div>
+
 <p>
-    <a href="{{ URL::to('cadastro') }}/{{ $lista->id }}">Adicionar tarefa</a> <br />
+    {{ HTML::link('listas/', 'Voltar', [ 'class' => 'btn btn-info']) }}
+    {{ HTML::link('tarefas/cadastro/'.$lista->id, 'Adicionar Tarefa', [ 'class' => 'btn btn-warning']) }}
+    {{ HTML::link('listas/', 'Excluir Lista', [ 'class' => 'btn btn-danger']) }}
 </p>
 
 <ul>
     @foreach($lista->tarefas as $tarefa)
-
     <li style="list-style: none">
         @if($tarefa->status)
         <span class="label label-success"> {{ $tarefa->titulo }} </span>
@@ -32,7 +36,7 @@ $(document).ready(function() {
         var tarefa_id = $(this).parent().data('tarefa-id');
         var li = $(this).parent().parent();
 
-        $.post('/check', 
+        $.post('/tarefas/check', 
                {tarefa_id: tarefa_id}, 
                function(json, textStatus, xhr) {
                 if (json.status == true) {

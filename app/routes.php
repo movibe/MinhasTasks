@@ -10,6 +10,6 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-
 Route::controller('listas', 'ListasController');
-Route::controller('/', 'TarefasController');
+Route::controller('tarefas', 'TarefasController');
+Route::controller('','HomeController');
