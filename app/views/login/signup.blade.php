@@ -25,26 +25,21 @@
 		</div>  
 		<div class="panel-body" >
 			{{ Form::open(array('url'=> 'signup', 'method' => 'post' )) }}
-
-			<div style="margin-bottom: 25px" class="input-group form-group">
-				<label for="email" class="col-md-3 control-label">Email</label>
-				<div class="col-md-9">
-					{{ Form::email('email', Input::old('email'), ['class' => 'form-control']) }}
-				</div>
-			</div>
-
-			<div style="margin-bottom: 25px" class="input-group form-group">
-				<label for="firstname" class="col-md-3 control-label">Nome</label>
-				<div class="col-md-9">
-					{{ Form::text('nome', Input::old('nome'), array('placeholder'=>'Digite seu nome', 'class'=>'form-control' )) }}
-				</div>
-			</div>
 			
-			<div style="margin-bottom: 25px" class="input-group form-group">
-				<label for="password" class="col-md-3 control-label">Senha</label>
-				<div class="col-md-9">
-					{{ Form::password('password', ['class' => 'form-control']) }}
-				</div>
+
+			<div style="margin-bottom: 25px" class="input-group">
+				<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+				{{ Form::email('email', Input::old('email'), array('placeholder'=>'Email', 'class'=>'form-control' )) }}
+			</div>
+
+			<div style="margin-bottom: 25px" class="input-group">
+				<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+				{{ Form::text('nome', Input::old('nome'), array('placeholder'=>'Nome', 'class'=>'form-control' )) }}
+			</div>
+
+			<div style="margin-bottom: 25px" class="input-group">
+				<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+				{{ Form::text('password', Input::old('password'), array('placeholder'=>'Senha', 'class'=>'form-control' )) }}
 			</div>
 
 

@@ -18,10 +18,26 @@
 		<ul class="nav navbar-nav">
 			<li class="">
 				@if(Auth::check())
-				    {{ HTML::link('listas', 'Tarefas') }}
+				{{ HTML::link('listas', 'Tarefas') }}
 				@endif
 			</li>
 		</ul>
+
+
+		@if(Auth::check())
+		<ul class="nav navbar-nav navbar-right">
+
+			<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Olá, {{ Auth::user()->nome }} <b class="caret"></b></a>
+				<ul class="dropdown-menu">
+					<li>{{ HTML::link('settings', 'Configurações') }}</li>
+					<li class="divider"></li>
+					<li>{{ HTML::link('logout', 'Sair') }}</li>
+				</ul>
+			</li>
+		</ul>
+		@endif
+
 	</nav>
 
 

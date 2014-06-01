@@ -51,7 +51,7 @@ Route::post('signup', ['before' => 'csrf',function(){
 	$val = Validator::make(Input::all(), User::$regras_cadastro);
 
 
-	if ($val->fails())  return Redirect::to('login')->withInput()->withErrors($val);
+	if ($val->fails())  return Redirect::to('signup')->withInput()->withErrors($val);
 	
 	// Cria um novo usuario
 	$usuario = new User;
@@ -76,7 +76,7 @@ Route::post('signup', ['before' => 'csrf',function(){
 // Encerrar sessão
 Route::get('logout', function(){
 	Auth::logout();
-	return Redirect::to('login');
+	return Redirect::to('/');
 });
 
 /**

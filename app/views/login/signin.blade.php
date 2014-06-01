@@ -32,8 +32,8 @@
 
 
 			<div style="margin-bottom: 25px" class="input-group">
-				<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-				{{ Form::email('email', Input::old('email'), array('placeholder'=>'agfoccus@gmail.com', 'class'=>'form-control' )) }}
+				<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+				{{ Form::email('email', Input::old('email'), array('placeholder'=>'teste@teste.com', 'class'=>'form-control' )) }}
 			</div>
 
 			<div style="margin-bottom: 25px" class="input-group">
