@@ -1,6 +1,6 @@
 web2: 
   name: minhastasks
-  php_version: 5.3.10
+  php_version: 5.4.14
   php_display_errors: "32767"
   php_extensions:
     - mcrypt
