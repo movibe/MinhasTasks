@@ -5,7 +5,7 @@ class ListasController extends BaseController {
 	protected $layout = 'layout.layout';
 
 	public function getIndex(){
-		$listas = Lista::all();
+		$listas = User::find(Auth::user()->id)->listas;
 		$this->layout->content = View::make('listas.index', compact('listas'));
 	}
 
@@ -15,6 +15,7 @@ class ListasController extends BaseController {
 
 	public function getTarefas($lista_id = 0 ){
 		if($lista_id == 0) return $this->listar();
+		
 		$lista = Lista::findOrFail($lista_id);
 
 		$this->layout->content = View::make('listas.tarefas', compact('lista'));
@@ -29,9 +30,10 @@ class ListasController extends BaseController {
 		} else {
 			$lista = new Lista;
 			$lista->titulo = Input::get('titulo');
+			$lista->user_id = Auth::user()->id;
 			$lista->save();
 
-			$listas = Lista::all();
+			$listas = User::find(Auth::user()->id)->listas;
 			$this->layout->content = View::make('listas.index', compact('listas'))->with('sucesso', TRUE);
 		}
 

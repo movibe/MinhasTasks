@@ -5,6 +5,21 @@ use Illuminate\Auth\Reminders\RemindableInterface;
 
 class User extends Eloquent implements UserInterface, RemindableInterface {
 
+
+	public static $regras_login = [
+	'email'    => 'required|email',
+	'password' => 'required'
+	];
+
+	public static $regras_cadastro = [
+	'email'    => 'required|email|unique:users,email',
+	'password' => 'required'
+	];
+
+	public function listas(){
+		return $this->hasMany('Lista','user_id');
+	}
+
 	/**
 	 * The database table used by the model.
 	 *

@@ -3,20 +3,23 @@
 
       <div class="masthead">
         <ul class="nav nav-pills pull-right">
-          <li><a href="http://todovel.frenetic.com.br">Home</a></li>
-          <li><a href="http://todovel.frenetic.com.br/about">About</a></li>
+          <li>{{ HTML::link('sobre', 'Sobre') }}</li>
+          <li>{{ HTML::link('login', 'Login') }}</li>
         </ul>
-        <h3 class="muted">ToDoVel</h3>
+        <h3 class="muted">Minhas Taks</h3>
       </div>
 
       <hr>
 
           
     <div class="jumbotron">
-        <h1>ToDoVel</h1>
+        <h1>Minhas Tasks</h1>
         
         <p class="lead">
-            ToDoVel é um simples sistema de listas de coisas para fazer (to-do list) desenvolvido com o framework PHP <a href="http://laravel.com/" target="_blank">Laravel 4</a>.
+            Minhas Tasks é um simples sistema de listas de coisas para fazer (to-do list). 
+            <br>
+            Desenvolvido com o framework PHP <a href="http://laravel.com/" target="_blank">Laravel 4</a>.
+            <br>
             Este aplicativo foi criado para ser um <a href="http://blog.frenetic.com.br/category/projetos/todovel/" target="_blank">tutorial básico de como utilizar o Laravel 4</a>.
         </p>
         
@@ -31,13 +34,6 @@
             <a class="btn btn-small btn-inverse" href="http://todovel.frenetic.com.br/login">Login</a>
         </p>
     </div>
-
-      <hr>
-
-      <div class="footer">
-        <p>Criado por <a href="http://www.FReNeTiC.com.br">FReNeTiC</a></p>
-      </div>
-
     
     
 @endsection

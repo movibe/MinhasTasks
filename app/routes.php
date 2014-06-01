@@ -1,34 +1,26 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the Closure to execute when that URI is requested.
-|
-*/
-
-
 /**
  * Login 
  */
 
 // Tela de Login e Cadastro
 Route::get('login', function(){
-	return View::make('login.index');
+	return View::make('login.signin');
+});
+
+Route::get('signup', function(){
+	return View::make('login.signup');
+});
+
+Route::get('sobre', function(){
+	return View::make('sobre');
 });
 
 // Logar
 Route::post('login', ['before' => 'csrf' ,function(){
-	$regras = [
-	'email' => 'required|email',
-	'password' => 'required:min5'
-	];
 
-	$val = Validator::make(Input::all(), $regras);
+	$val = Validator::make(Input::all(), User::$regras_login);
 
 	if ($val->fails()) {
 		return Redirect::to('login')->withInput()->withErrors($val);
@@ -47,6 +39,35 @@ Route::post('login', ['before' => 'csrf' ,function(){
 	} else {
 		return Redirect::to('login')->withInput()->withErrors('Usuário ou Senha Inválido');
 	}
+
+}]);
+
+Route::post('signup', ['before' => 'csrf',function(){
+
+	$val = Validator::make(Input::all(), User::$regras_cadastro);
+
+	if ($val->fails())  return Redirect::to('login')->withInput()->withErrors($val);
+
+	// Get em todos os Inputs
+	$usuario = [
+		'nome'     => Input::get('nome'),
+		'email'    => Input::get('email'),
+		'password' => Hash::make(Input::get('password')),
+		'active'   => true
+	];
+	
+	// Cria um novo usuario
+	User::create($usuario);
+
+
+	// Pego os dados do Usuário Cadastro
+	$user_cadastrado = User::where('email', '=' , Input::get('email'))->firstOrFail();
+
+	// Faço o login automaticamente
+	Auth::login($user_cadastrado->id);
+
+	// Faço um redirect para cadastrar uma Lista de Tarefas
+	return Redirect::to('listas/cadastro');
 
 }]);
 

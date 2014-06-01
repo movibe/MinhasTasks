@@ -12,21 +12,27 @@
 </head>
 <body>
 	
-
 	<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
 		{{ HTML::link('/', 'Minha Task', ['class' => 'navbar-brand']) }}
 
-
 		<ul class="nav navbar-nav">
 			<li class="">
-				{{ HTML::link('listas', 'Tarefas') }}
+				@if(Auth::check())
+				    {{ HTML::link('listas', 'Tarefas') }}
+				@endif
 			</li>
 		</ul>
 	</nav>
 
 
 	<div class="container">
+
 		@yield ('content')
+
+		<hr>
+		<div class="footer">
+			<p>Criado por <a href="http://www.movibe.com.br">Willian Ribeiro Angelo</a></p>
+		</div>
 	</div>
 
 	<!-- jQuery -->
@@ -41,6 +47,6 @@
 
 	@section('custom_script')
 	@show
-
+	
 </body>
 </html>
