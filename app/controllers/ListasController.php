@@ -5,8 +5,7 @@ class ListasController extends BaseController {
 	protected $layout = 'layout.layout';
 
 	public function getIndex(){
-		$listas = User::find(Auth::user()->id)->listas;
-		$this->layout->content = View::make('listas.index', compact('listas'));
+		$this->layout->content = View::make('index');
 	}
 
 	public function getCadastro(){

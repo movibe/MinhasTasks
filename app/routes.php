@@ -90,6 +90,11 @@ Route::get('', function(){
 
 // Rotas somente se estiver logado
 Route::group(array('before' => 'auth' ), function(){
+	
+	if (Auth::check()) {
+		View::composer('layout.layout', 'ListasComposer');
+	}
+
 	Route::controller('listas', 'ListasController');
 	Route::controller('tarefas', 'TarefasController');
 });

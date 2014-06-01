@@ -54,10 +54,10 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => $_SERVER['DB1_HOST'],
-			'database'  => $_SERVER['DB1_NAME'],
-			'username'  => $_SERVER['DB1_USER'],
-			'password'  => $_SERVER['DB1_PASS'],
+			'host'      => '127.0.0.1',
+			'database'  => 'lv_tarefas',
+			'username'  => 'root',
+			'password'  => 'mysql',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
