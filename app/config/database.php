@@ -28,7 +28,7 @@ return array(
 
 	'profile' => true,
 
-	'default' => 'mysql',
+	'default' => 'sqlite',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -48,44 +48,44 @@ return array(
 
 	'connections' => array(
 
-		'sqlite' => array(
-			'driver'   => 'sqlite',
-			'database' => __DIR__.'/../database/production.sqlite',
-			'prefix'   => '',
-		),
+	                       'sqlite' => array(
+	                                         'driver'   => 'sqlite',
+	                                         'database' => __DIR__.'/../database/production.sqlite',
+	                                         'prefix'   => '',
+	                                         ),
 
-		'mysql' => array(
-		'driver'    => 'mysql',
-		'host'      => $_SERVER['DB1_HOST'],
-		'database'  => $_SERVER['DB1_NAME'],
-		'username'  => $_SERVER['DB1_USER'],
-		'password'  => $_SERVER['DB1_PASS'],
-		'charset'   => 'utf8',
-		'collation' => 'utf8_unicode_ci',
-		'prefix'    => '',
-	),
+	                       'mysql' => array(
+	                                        'driver'    => 'mysql',
+	                                        'host'     => '127.0.0.1',
+	                                        'database' => 'lv_tarefas',
+	                                        'username' => 'root',
+	                                        'password' => 'mysql',
+	                                        'charset'   => 'utf8',
+	                                        'collation' => 'utf8_unicode_ci',
+	                                        'prefix'    => '',
+	                                        ),
 
-		'pgsql' => array(
-			'driver'   => 'pgsql',
-			'host'     => 'localhost',
-			'database' => 'database',
-			'username' => 'root',
-			'password' => '',
-			'charset'  => 'utf8',
-			'prefix'   => '',
-			'schema'   => 'public',
-		),
+	                       'pgsql' => array(
+	                                        'driver'   => 'pgsql',
+	                                        'host'     => 'localhost',
+	                                        'database' => 'database',
+	                                        'username' => 'root',
+	                                        'password' => '',
+	                                        'charset'  => 'utf8',
+	                                        'prefix'   => '',
+	                                        'schema'   => 'public',
+	                                        ),
 
-		'sqlsrv' => array(
-			'driver'   => 'sqlsrv',
-			'host'     => 'localhost',
-			'database' => 'database',
-			'username' => 'root',
-			'password' => '',
-			'prefix'   => '',
-		),
+	                       'sqlsrv' => array(
+	                                         'driver'   => 'sqlsrv',
+	                                         'host'     => 'localhost',
+	                                         'database' => 'database',
+	                                         'username' => 'root',
+	                                         'password' => '',
+	                                         'prefix'   => '',
+	                                         ),
 
-	),
+	                       ),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -113,14 +113,14 @@ return array(
 
 	'redis' => array(
 
-		'cluster' => false,
+	                 'cluster' => false,
 
-		'default' => array(
-			'host'     => '127.0.0.1',
-			'port'     => 6379,
-			'database' => 0,
-		),
+	                 'default' => array(
+	                                    'host'     => '127.0.0.1',
+	                                    'port'     => 6379,
+	                                    'database' => 0,
+	                                    ),
 
-	),
+	                 ),
 
-);
+	);

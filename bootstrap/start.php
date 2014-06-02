@@ -26,7 +26,7 @@ $app = new Illuminate\Foundation\Application;
 
 $env = $app->detectEnvironment(array(
 
-	'local' => array('*'),
+	'local' => array('tarefas.*'),
 	'production' => array('http://minhastasks.gopagoda.com/', 'minhastasks.gopagoda.com', '*.com', '*.gopagoda.com' ),
 
 ));
