@@ -27,10 +27,11 @@ $app = new Illuminate\Foundation\Application;
 $env = $app->detectEnvironment(array(
 
 	'local' => array('*'),
-	'production' => array('http://minhastasks.gopagoda.com/', 'minhastasks.gopagoda.com', '*.com', '*.gopagoda.com' );
+	'production' => array('http://minhastasks.gopagoda.com/', 'minhastasks.gopagoda.com', '*.com', '*.gopagoda.com' ),
 
 ));
 
+// dd($env);
 /*
 |--------------------------------------------------------------------------
 | Bind Paths

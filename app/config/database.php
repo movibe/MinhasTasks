@@ -26,6 +26,8 @@ return array(
 	|
 	*/
 
+	'profile' => true,
+
 	'default' => 'mysql',
 
 	/*
