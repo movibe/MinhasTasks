@@ -6,7 +6,7 @@
 	<meta name=description content="">
 	<meta name=viewport content="width=device-width, initial-scale=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="shortcut icon" href="http://getbootstrap.com/assets/ico/favicon.ico">
+	<link rel="shortcut icon" href="{{ URL::to('images/favicon.ico') }}">
 	<!-- Bootstrap CSS -->
 	{{ HTML::style('assets/bootstrap/dist/css/bootstrap.min.css') }}
 	{{ HTML::style('css/dashboard.css') }}
@@ -23,7 +23,8 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				{{ HTML::link('/', 'Minha Task', ['class' => 'navbar-brand']) }}
+				<img src="{{ URL::to('images/icon.png') }}" alt="" height="50">{{ HTML::link('/', 'Minhas Tasks', ['class' => 'navbar-brand']) }} 
+				
 			</div>
 
 			@if(Auth::check())

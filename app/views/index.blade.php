@@ -1,17 +1,6 @@
 @extends ('layout.layout')
 @section('title', 'Bem vindo')
 @section('content')
-
-      <div class="masthead">
-        <ul class="nav nav-pills pull-right">
-          <li>{{ HTML::link('sobre', 'Sobre') }}</li>
-          <li>{{ HTML::link('login', 'Login') }}</li>
-        </ul>
-        <h3 class="muted">Minhas Taks</h3>
-      </div>
-
-      <hr>
-
           
     <div class="jumbotron">
         <h1>Minhas Tasks</h1>
