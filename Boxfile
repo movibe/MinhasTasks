@@ -1,36 +1,27 @@
-global:
-  
-web1:
-  php_upload_max_filesize: "20M"
-  php_post_max_size: "20M"
+web1: 
   name: minhastasks
-  shared_writable_dirs:
-    - /storage/cache
-    - /storage/database
-    - /storage/logs
-    - /storage/sessions
-    - /storage/views
-    - /storage/work
-    # - /public/uploads uncomment this if users store uploads
-  document_root: /public
   php_version: 5.4.14
+  php_display_errors: "32767"
   php_extensions:
-    - curl
-    - memcached
-    - imagick
-    - mbstring
-    - pdo_mysql
     - mcrypt
-    - gd
-  # after_build: uncomment this you need composer
-    # - "curl -s https://getcomposer.org/installer | php"
-    # - "php composer.phar install"
+    - pdo_mysql
+    - zip
+    - apc
+    - mbstring
+  shared_writable_dirs:
+    - app/storage/cache
+    - app/storage/logs
+    - app/storage/meta
+    - app/storage/sessions
+    - app/storage/views
+  document_root: public
+  after_build: 
+    - "if [ ! -f composer.phar ]; then curl -s http://getcomposer.org/installer | php; fi; php composer.phar install --prefer-source"
   before_deploy:
-    - "php artisan migrate:install"
     - "php artisan migrate"
-  after_deploy:
-    - "rm -f storage/cache/*"
-    - "rm -f storage/views/*"
-db1:
-  name: minhastasks            
+  after_depoly:
+    - "rm -f app/storage/cache/*"
+    - "rm -f app/storage/views/*"
+db1: 
+  name: minhastasks
   type: mysql
